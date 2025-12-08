@@ -7,3 +7,4 @@ A curated collection of Docker Compose configurations designed for OpenHackathon
 | Name | File | GithubRepo | Launchable Link |
 |------|------|------------|-----------------|
 | NEMO Challenge | `docker-compose-nemo_challenge.yml` | https://github.com/openhackathons-org/NeMo-Challenge-Bootcamp |https://brev.nvidia.com/launchable/deploy?launchableID=env-35HSyuaFLaBNEk6hh848wnICnRw 
+| AI Agents | `docker-compose-aiagents.yml` | https://github.com/openhackathons-org/AI-Agents-Bootcamp | https://brev.nvidia.com/launchable/deploy/now?launchableID=env-36Z4QECVh8cu1UvxbtArtwryUrf
