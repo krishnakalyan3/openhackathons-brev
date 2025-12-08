@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    image: nvcr.io/nvidia/nemo:dev
+    pull_policy: always
+    
+    # Resource limits and shared memory
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    shm_size: 1g
+    
+    # GPU configuration
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    # Container configuration
+    restart: unless-stopped
+    working_dir: /home/ubuntu/
+
+    volumes:
+      - /home/ubuntu/:/home/ubuntu/
+
+    # Jupyter Lab configuration with NeMo Challenge setup
+    command: >
+      sh -c "
+      pip install uv &&
+      uv pip install ujson gdown datasets rouge-score evaluate tqdm huggingface_hub[hf_xet] &&
+      python -m jupyter lab
+      --ip=0.0.0.0
+      --no-browser
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+      "
+    
+    # Port mapping
+    ports:
+      - "0.0.0.0:8888:8888" # JupyterLab
