@@ -1,0 +1,4 @@
+ipywidgets 
+torch_tb_profiler
+torch
+torchvision
